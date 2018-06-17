@@ -1,0 +1,28 @@
+{
+  "name": "web-express",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "test": "yarn run lint && ./node_modules/.bin/jest",
+    "lint": "./node_modules/.bin/eslint ./*.js routes/*.js routes/*/*.js",
+    "clean": "rm -rf node_modules coverage yarn.lock views/*.marko.js views/*/*.marko.js"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "debug": "~2.6.9",
+    "express": "~4.16.0",
+    "marko": "^4.10.0",
+    "morgan": "~1.9.0",
+    "serve-favicon": "^2.5.0"
+  },
+  "devDependencies": {
+    "eslint": "^4.19.1",
+    "eslint-plugin-jest": "^21.17.0",
+    "jest": "^23.1.0"
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
