@@ -1,0 +1,18 @@
+{
+  "overrides": [
+    {
+      "files": [ "*.js" ],
+      "env": {
+        "browser": true
+      },
+      "plugins": ["es5"],
+      "rules": {
+        "no-undef": 0,
+        "es5/no-arrow-functions": "error",
+        "es5/no-block-scoping": ["error"],
+        "es5/no-template-literals": "error",
+        "es5/no-classes": "error"
+      }
+    }
+  ]
+}
