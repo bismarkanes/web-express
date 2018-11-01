@@ -1,6 +1,6 @@
 require('marko/node-require');
 
-process.env.ROOT = __dirname;
+process.env.APP_ROOT = __dirname;
 const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
@@ -24,7 +24,7 @@ app.use(markoExpress());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(favicon(path.join(__dirname, 'assets', 'img', 'favicon.ico')));
 
-app.use('/', routes);
+app.use(routes);
 
 app.use((req, res) => {
   res.status(404).send(constants.ERR_NOT_FOUND);
