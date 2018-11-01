@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "node server.js",
     "test": "nyc mocha -b --timeout 15000 --exit",
-    "clean": "rm -rf node_modules coverage yarn.lock views/*.marko.js views/*/*.marko.js"
+    "clean": "rm -rf node_modules coverage yarn.lock"
   },
   "dependencies": {
     "config": "^2.0.1",
@@ -13,7 +13,6 @@
     "cors": "^2.8.4",
     "debug": "~4.1.0",
     "express": "~4.16.0",
-    "marko": "^4.10.0",
     "morgan": "~1.9.0",
     "serve-favicon": "^2.5.0"
   },

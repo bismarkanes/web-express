@@ -1,13 +1,8 @@
-require('marko/node-require');
-
 process.env.APP_ROOT = __dirname;
-const path = require('path');
 const express = require('express');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
-const markoExpress = require('marko/express');
-const favicon = require('serve-favicon');
 
 const constants = require('./include/constants');
 
@@ -19,10 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
-app.use(markoExpress());
-
-app.use('/assets', express.static(path.join(__dirname, 'assets')));
-app.use(favicon(path.join(__dirname, 'assets', 'img', 'favicon.ico')));
 
 app.use(routes);
 
