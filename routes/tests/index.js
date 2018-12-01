@@ -1,5 +1,9 @@
-const router = (req, res) => {
-  res.json({msg: 'This is test'});
+const ping = (req, res) => {
+  res.send('ping');
 };
 
-module.exports = router;
+const tests = {
+  ping,
+};
+
+module.exports = tests;
