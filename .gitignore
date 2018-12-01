@@ -56,3 +56,8 @@ typings/
 
 # next.js build output
 .next
+
+.tern-port
+.tern-project
+
+*.marko.js

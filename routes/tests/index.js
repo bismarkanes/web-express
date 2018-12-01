@@ -1,8 +1,12 @@
 const path = require('path');
-const test = require(path.resolve(process.env.ROOT, 'views', 'tests', 'index'));
+const test = require(path.join(process.env.APP_ROOT, 'views', 'tests', 'index'));
 
-const router = (req, res) => {
-  res.marko(test, {message: 'This is test'});
+const ping = (req, res) => {
+  res.marko(test, {message: 'PONG'});
 };
 
-module.exports = router;
+const tests = {
+  ping,
+};
+
+module.exports = tests;
