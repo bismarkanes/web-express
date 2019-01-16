@@ -1,5 +1,7 @@
-<include('../layout.marko', {})>
+import Layout from '../layout.marko';
+
+<${Layout}>
   <@body>
   <h1>${data.message}</h1>
   </@body>
-</include>
+</>
