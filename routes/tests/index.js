@@ -1,9 +1,7 @@
-const ping = (req, res) => {
-  res.send('ping');
-};
+class Tests {
+  ping(req, res) {
+    res.send('ping');
+  }
+}
 
-const tests = {
-  ping,
-};
-
-module.exports = tests;
+module.exports = new Tests();
