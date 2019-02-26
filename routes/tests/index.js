@@ -1,12 +1,10 @@
 const path = require('path');
-const test = require(path.join(process.env.APP_ROOT, 'views', 'tests', 'index'));
+const pingView = require(path.join(process.env.APP_ROOT, 'views', 'tests', 'index'));
 
-const ping = (req, res) => {
-  res.marko(test, {message: 'PONG'});
-};
+class Tests {
+  ping(req, res) {
+    res.marko(pingView, {message: 'PONG'});
+  }
+}
 
-const tests = {
-  ping,
-};
-
-module.exports = tests;
+module.exports = new Tests();

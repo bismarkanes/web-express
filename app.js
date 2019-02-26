@@ -11,7 +11,7 @@ const favicon = require('serve-favicon');
 
 const constants = require('./include/constants');
 
-const routes = require('./routes');
+const tests = require('./routes/tests');
 const app = express();
 
 app.use(logger(process.env.NODE == 'production' ? 'common' : 'dev'));
@@ -24,7 +24,7 @@ app.use(markoExpress());
 app.use('/assets', express.static(path.join(__dirname, 'assets')));
 app.use(favicon(path.join(__dirname, 'assets', 'img', 'favicon.ico')));
 
-app.use(routes);
+app.get('/ping', tests.ping);
 
 app.use((req, res) => {
   res.status(404).send(constants.ERR_NOT_FOUND);
