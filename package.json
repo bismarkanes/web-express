@@ -3,7 +3,8 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
-    "dev": "node server.js",
+    "dev": "./node_modules/.bin/nodemon server.js",
+    "start": "node server.js",
     "test": "nyc mocha -b --timeout 15000 --exit",
     "clean": "rm -rf node_modules coverage yarn.lock"
   },
@@ -12,6 +13,7 @@
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~4.1.0",
+    "dotenv": "^7.0.0",
     "express": "~4.16.0",
     "morgan": "~1.9.0",
     "serve-favicon": "^2.5.0"
@@ -19,7 +21,21 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.8.0",
+    "husky": "^1.3.1",
+    "lint-staged": "^8.1.5",
     "mocha": "^5.2.0",
+    "nodemon": "^1.18.11",
     "nyc": "^13.1.0"
+  },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

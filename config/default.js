@@ -1,6 +1,6 @@
 module.exports = {
   app: {
-    hostname: '',
-    port: 8080,
+    hostname: process.env.HOSTNAME,
+    port: process.env.PORT,
   }
 };
