@@ -1,6 +1,6 @@
 class Tests {
   ping(req, res) {
-    res.send('ping');
+    res.send('PONG');
   }
 }
 
