@@ -44,7 +44,7 @@ RUN npm -g install yarn
 # set the base image to nvm
 # FROM nvm
 
-ENV APP_NAME web-express
+ENV APP_NAME app
 ENV APP_DIR /var/www/$APP_NAME
 
 ADD ./ $APP_DIR/
