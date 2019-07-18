@@ -1,0 +1,7 @@
+GET http://localhost:8080/ping
+####
+PATCH http://localhost:8080/ping
+####
+POST http://localhost:8080/ping
+####
+DELETE http://localhost:8080/ping

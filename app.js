@@ -8,7 +8,7 @@ const constants = require('./include/constants');
 
 const app = express();
 
-const tests = require('./routes/tests');
+const { getPing, updatePing, createPing, deletePing, } = require('./routes/ping');
 
 app.use(logger(process.env.NODE == 'production' ? 'common' : 'dev'));
 app.use(express.json());
@@ -16,7 +16,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
 
-app.get('/ping', tests.ping)
+app.get('/ping', getPing);
+app.patch('/ping', updatePing);
+app.post('/ping', createPing);
+app.delete('/ping', deletePing);
 
 app.use((req, res) => {
   res.status(404).send(constants.ERR_NOT_FOUND);
