@@ -1,5 +1,6 @@
 process.env.APP_ROOT = __dirname;
 const express = require('express');
+const bearerToken = require('express-bearer-token');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const cors = require('cors');
@@ -11,6 +12,7 @@ const app = express();
 
 const { getPing, updatePing, createPing, deletePing, } = require('./routes/ping');
 
+app.use(bearerToken());
 app.use(logger(process.env.NODE == 'production' ? 'common' : 'dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
