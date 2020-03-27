@@ -5,6 +5,7 @@ const logger = require('morgan');
 const cors = require('cors');
 
 const constants = require('./include/constants');
+const mapResponse = require('./lib/mapresponse');
 
 const app = express();
 
@@ -15,6 +16,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors());
+app.use(mapResponse());
 
 app.get('/ping', getPing);
 app.patch('/ping', updatePing);
