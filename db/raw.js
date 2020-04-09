@@ -14,7 +14,15 @@ const releaseSqlConnection = async (connection) => {
   return await sequelizeConn.connectionManager.releaseConnection(connection);
 };
 
+/*
+ * [["createdAt","DESC"],["email","ASC"]] -> createdAt DESC, email DESC
+ */
+const parseOrderByToSqlString = (orderBy) => {
+  return orderBy.map(item => item.join(' ')).join(',');
+};
+
 module.exports = {
   getSqlConnection,
   releaseSqlConnection,
+  parseOrderByToSqlString,
 };
