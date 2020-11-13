@@ -3,16 +3,16 @@ const query = models.Pings;
 const $ = require('config');
 
 module.exports = {
-  getPing: async ({ id, limit = $.pagination.defaultLimit, } = {}) => {
+  getPing: async ({ id, limit = $.pagination.defaultLimit, offset = $.pagination.defaultOffset, } = {}) => {
     let where = {};
     if (id) {
       where.id = id;
-      limit = 1;
     }
 
     return await query.findAll({
       where,
       limit,
+      offset,
       raw: true,
     });
   },

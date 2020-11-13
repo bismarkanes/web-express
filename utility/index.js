@@ -1,19 +1,25 @@
 class Utility {
-  /**
-   * Convert query searchMax, searchIndex into SQL limit offset parameter
-   * @param {Object} param
-   * @param {string} param.searchMax
-   * @param {string} param.searchIndex
-   * @return {{ limit: number, offset: number }}
+  /*
+   * return null if invalid
    */
-  parseSearchToLimitOffset({ searchMax, searchIndex, }) {
-    let limit = parseInt(searchMax);
-    if (isNaN(limit)) throw new Error('ERR_INVALID_searchMax');
+  pageLengthToOffsetLimit({ page, length }) {
+    let _page = parseInt(page);
+    let _length = parseInt(length);
 
-    let offset = limit * parseInt(searchIndex);
-    if (isNaN(offset)) throw new Error('ERR_INVALID_searchIndex');
+    // using limit
+    if (_length > 0) {
+      var limit = _length;
+    } else return null;
 
-    return { limit, offset };
+    // using offset
+    if (_page > 0) {
+      var offset = (_page - 1) * length;
+    } else return null;
+
+    return {
+      limit,
+      offset,
+    };
   }
 }
 

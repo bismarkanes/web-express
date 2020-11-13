@@ -1,7 +1,15 @@
 const queries = require('../../queries/pings');
+const { pageLengthToOffsetLimit, } = require('../../utility');
 
 const getPing = async (req, res) => {
-  res.json(await queries.getPing());
+  let pagination = pageLengthToOffsetLimit({ page: req.query.page, length: req.query.length, });
+
+  if (pagination) {
+    var offset = pagination.offset;
+    var limit = pagination.limit;
+  }
+
+  res.json(await queries.getPing({ offset, limit }));
 };
 
 const updatePing = async (req, res) => {

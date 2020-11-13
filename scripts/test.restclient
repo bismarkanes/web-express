@@ -1,6 +1,6 @@
 :HOSTNAME=http://localhost:8080
 ####
-GET :HOSTNAME/ping
+GET :HOSTNAME/ping?length=2&page=1
 ####
 POST :HOSTNAME/ping
 content-type: application/json
