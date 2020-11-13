@@ -1,12 +1,10 @@
 # set the base image to Debian
 # https://hub.docker.com/_/debian/
-FROM debian:stretch
+FROM debian:sid-slim
 
 # replace shell with bash so we can source files
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 
-# update the repository sources list
-# and install dependencies
 RUN apt-get update
 RUN DEBIAN_FRONTEND=noninteractive apt-get upgrade -y
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y curl
@@ -16,11 +14,11 @@ RUN mkdir -p /usr/local/nvm
 
 # nvm environment variables
 ENV NVM_DIR /usr/local/nvm
-ENV NODE_VERSION 8.11.4
+ENV NODE_VERSION 12.18.3
 
 # install nvm
 # https://github.com/creationix/nvm#install-script
-RUN curl --silent -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 # install node and npm
 RUN source $NVM_DIR/nvm.sh \
@@ -36,11 +34,6 @@ ENV PATH $NVM_DIR/versions/node/v$NODE_VERSION/bin:$PATH
 RUN node -v
 RUN npm -v
 
-# upgrade npm
-RUN npm -g update
-# install yarn
-RUN npm -g install yarn
-
 # set the base image to nvm
 # FROM nvm
 
@@ -48,10 +41,14 @@ ENV APP_NAME app
 ENV APP_DIR /var/www/$APP_NAME
 
 ADD ./ $APP_DIR/
+RUN cat $APP_DIR/include/version.js
 
 WORKDIR $APP_DIR
 
-EXPOSE 8080
+EXPOSE 8080 8081
 
-RUN yarn
+RUN npm install
+# RUN npm run db:migrate
+# RUN npm run db:seed
+
 CMD ["node", "server.js"]
