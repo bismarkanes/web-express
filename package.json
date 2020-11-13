@@ -20,6 +20,8 @@
     "express-bearer-token": "^2.4.0",
     "morgan": "~1.9.0",
     "mysql2": "^1.6.5",
+    "pg": "^8.5.0",
+    "pg-hstore": "^2.3.3",
     "redis": "^3.0.2",
     "sequelize": "^5.19.4",
     "serve-favicon": "^2.5.0"
