@@ -16,6 +16,7 @@ module.exports = {
     dialectOptions: {
       decimalNumbers: true,
     },
+    logging: process.env.DB_LOGGING === 'true' ? console.log : false,
   },
   pagination: {
     defaultLimit: 20,
