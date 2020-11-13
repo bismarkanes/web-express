@@ -1,6 +1,6 @@
 :HOSTNAME=http://localhost:8080
 ####
-GET :HOSTNAME/ping?length=2&page=1
+GET :HOSTNAME/ping?length=10&page=1
 ####
 GET :HOSTNAME/ping/2
 ####
@@ -11,11 +11,11 @@ content-type: application/json
   "name": "bismark"
 }
 ####
-PATCH :HOSTNAME/ping/1
+PATCH :HOSTNAME/ping/5
 content-type: application/json
 
 {
-  "name": "martin"
+  "name": "dodi"
 }
 ####
 DELETE :HOSTNAME/ping/1
