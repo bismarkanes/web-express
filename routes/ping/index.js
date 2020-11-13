@@ -1,19 +1,22 @@
-// const queries = require('../../queries');
+const queries = require('../../queries/pings');
 
-const getPing = (req, res) => {
-  res.send('PONG');
+const getPing = async (req, res) => {
+  res.json(await queries.getPing());
 };
 
-const updatePing = (req, res) => {
-  res.send('PONG');
+const updatePing = async (req, res) => {
+  res.json(await queries.updatePing({
+    id: req.params.id,
+    name: req.body.name,
+  }));
 };
 
-const createPing = (req, res) => {
-  res.send('PONG');
+const createPing = async (req, res) => {
+  res.json(await queries.createPing({ name: req.body.name }));
 };
 
-const deletePing = (req, res) => {
-  res.send('PONG');
+const deletePing = async (req, res) => {
+  res.json(await queries.deletePing({ id: req.params.id, }));
 };
 
 module.exports = {

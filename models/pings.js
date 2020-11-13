@@ -13,7 +13,8 @@ module.exports = (sequelize) => {
       type: Sequelize.STRING,
     },
   }, {
-    tableName: 'ping',
+    tableName: 'pings',
+    modelName: 'Pings',
     timestamps: true,
     underscored: false,
     paranoid: true,

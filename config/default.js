@@ -17,4 +17,7 @@ module.exports = {
       decimalNumbers: true,
     },
   },
+  pagination: {
+    defaultLimit: 20,
+  }
 };

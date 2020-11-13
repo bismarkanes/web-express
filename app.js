@@ -21,9 +21,9 @@ app.use(cors());
 app.use(mapResponse());
 
 app.get('/ping', getPing);
-app.patch('/ping', updatePing);
+app.patch('/ping/:id', updatePing);
 app.post('/ping', createPing);
-app.delete('/ping', deletePing);
+app.delete('/ping/:id', deletePing);
 
 app.use((req, res) => {
   res.status(404).send(constants.ERR_NOT_FOUND);

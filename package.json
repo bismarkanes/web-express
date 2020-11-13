@@ -6,7 +6,9 @@
     "dev": "./node_modules/.bin/nodemon server.js",
     "start": "node server.js",
     "test": "nyc mocha -b --timeout 15000 --exit",
-    "clean": "rm -rf node_modules coverage yarn.lock"
+    "clean": "rm -rf node_modules coverage yarn.lock",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:seed": "npx sequelize-cli db:seed:all"
   },
   "dependencies": {
     "config": "^2.0.1",

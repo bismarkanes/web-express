@@ -1,7 +1,19 @@
-GET http://localhost:8080/ping
+:HOSTNAME=http://localhost:8080
 ####
-PATCH http://localhost:8080/ping
+GET :HOSTNAME/ping
 ####
-POST http://localhost:8080/ping
+POST :HOSTNAME/ping
+content-type: application/json
+
+{
+  "name": "bismark"
+}
 ####
-DELETE http://localhost:8080/ping
+PATCH :HOSTNAME/ping/1
+content-type: application/json
+
+{
+  "name": "martin"
+}
+####
+DELETE :HOSTNAME/ping/1
