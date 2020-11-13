@@ -21,6 +21,7 @@ app.use(cors());
 app.use(mapResponse());
 
 app.get('/ping', getPing);
+app.get('/ping/:id', getPing);
 app.patch('/ping/:id', updatePing);
 app.post('/ping', createPing);
 app.delete('/ping/:id', deletePing);

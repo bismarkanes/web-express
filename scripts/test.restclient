@@ -2,6 +2,8 @@
 ####
 GET :HOSTNAME/ping?length=2&page=1
 ####
+GET :HOSTNAME/ping/2
+####
 POST :HOSTNAME/ping
 content-type: application/json
 

@@ -7,6 +7,7 @@ module.exports = {
     let where = {};
     if (id) {
       where.id = id;
+      limit = 1;
     }
 
     return await query.findAll({

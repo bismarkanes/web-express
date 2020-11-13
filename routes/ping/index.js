@@ -9,7 +9,7 @@ const getPing = async (req, res) => {
     var limit = pagination.limit;
   }
 
-  res.json(await queries.getPing({ offset, limit }));
+  res.json(await queries.getPing({ id: req.params.id, offset, limit }));
 };
 
 const updatePing = async (req, res) => {
