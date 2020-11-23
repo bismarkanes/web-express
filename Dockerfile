@@ -21,7 +21,7 @@ ENV NODE_VERSION 12.18.3
 RUN curl --silent -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh | bash
 
 # install node and npm
-RUN source $NVM_DIR/nvm.sh \
+RUN . $NVM_DIR/nvm.sh \
 && nvm install $NODE_VERSION \
 && nvm alias default $NODE_VERSION \
 && nvm use default
