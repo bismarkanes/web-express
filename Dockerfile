@@ -45,7 +45,7 @@ RUN cat $APP_DIR/include/version.js
 
 WORKDIR $APP_DIR
 
-EXPOSE 8080 8081
+EXPOSE 8080
 
 RUN npm install
 # RUN npm run db:migrate
