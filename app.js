@@ -10,7 +10,7 @@ const mapResponse = require('./lib/mapresponse');
 
 const app = express();
 
-const { getPing, updatePing, createPing, deletePing, } = require('./routes/ping');
+const { getPing, } = require('./routes/ping');
 
 app.use(bearerToken());
 app.use(logger(process.env.NODE == 'production' ? 'common' : 'dev'));
@@ -21,10 +21,6 @@ app.use(cors());
 app.use(mapResponse());
 
 app.get('/ping', getPing);
-app.get('/ping/:id', getPing);
-app.patch('/ping/:id', updatePing);
-app.post('/ping', createPing);
-app.delete('/ping/:id', deletePing);
 
 app.use((req, res) => {
   res.status(404).send(constants.ERR_NOT_FOUND);
