@@ -17,5 +17,6 @@ const connection = new Sequelize($.db);
 connection.authenticate().then((data) => console.log('Connection database success!')).catch((err) => console.error(err));
 
 module.exports = {
-  connection
+  connection,
+  transaction: connection.transaction(),
 };
